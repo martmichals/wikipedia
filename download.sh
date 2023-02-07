@@ -64,5 +64,3 @@ for filepath in $DATA_DIR/*.bz2; do
     # Move file to directory
     mv $filepath $file_dir
 done
-
-# Look for files left over in the data directory, display warning
