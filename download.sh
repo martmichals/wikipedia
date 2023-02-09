@@ -57,10 +57,14 @@ for filepath in $DATA_DIR/*.bz2; do
 
     # Create directory if it does not exist
     file_dir=$DATA_DIR/$date
-    if [ ! -d  $file_dir ]; then
+    if [ ! -d $file_dir ]; then
         mkdir $file_dir
     fi
 
     # Move file to directory
     mv $filepath $file_dir
 done
+
+# TODO: Give exe permissions to scripts in the scripts folder
+# TODO: Change directory structure of 2021-10-20 to include zipped directory
+# TODO: Move this to the scripts directory
