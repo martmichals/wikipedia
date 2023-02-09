@@ -27,3 +27,6 @@ for filepath in $DUMP/*.bz2; do
     bzip2 -dk $filepath
     mv "${filepath::-4}" $OUTPUT
 done
+
+# TODO: Incorporate the command below into a script
+# wikiextractor --processes 32 -o ./plain-text/ ./unzipped/enwiki-20211020-pages-articles-multistream.xml 
