@@ -4,7 +4,20 @@ import argparse
 import transformers
 from tqdm import tqdm
 import multiprocessing
-from chunk import chunk_text
+from langchain import RecursiveCharacterTextSplitter
+
+# Function to chunk an article
+def chunk_text_langchain(article, tokenizer):
+    splitter = RecursiveCharacterTextSplitter(
+        chunk_size = 256,
+        chunk_overlap = 20,
+        length_function = lambda str: len(tokenizer.encode(str))
+    )
+
+    return (
+        [doc.page_content for doc in splitter.create_documents([article['text']])], 
+        article['id']
+    )
 
 def main(args):
     # Validate the existence of the input directory
@@ -44,7 +57,7 @@ def main(args):
     with multiprocessing.Pool(processes=32) as pool:
         async_results = [
             pool.apply_async(
-                chunk_text, 
+                chunk_text_langchain, 
                 args=(articles[article_id], tokenizer), 
                 callback=lambda _: progress_bar.update()
             ) for article_id in articles
