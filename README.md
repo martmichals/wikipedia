@@ -39,3 +39,37 @@ To save your python environment (and overwrite the current environment file):
 ```bash
 conda env export > wikipedia.yml
 ```
+
+## WIKIR
+
+To download the WIKIR datasets:
+
+```bash
+cd data
+wget https://www.zenodo.org/record/3707606/files/enwikIR.zip?download=1
+wget https://www.zenodo.org/record/3707238/files/enwikIRS.zip?download=1
+```
+
+To unzip and organize:
+
+```bash
+unzip 'enwikIR.zip?download=1' && unzip 'enwikIRS.zip?download=1'
+rm 'enwikIR.zip?download=1' 'enwikIRS.zip?download=1'
+mkdir WIKIR
+mv enwikIR WIKIR && mv enwikIRS WIKIR
+```
+
+## WikiPassageQA
+
+To download the WikiPassageQA dataset:
+
+```bash
+cd data
+wget https://ciir.cs.umass.edu/downloads/wikipassageqa/WikiPassageQA.zip
+```
+
+To unzip and organize:
+
+```bash
+unzip WikiPassageQA.zip -d WikiPassageQA && rm WikiPassageQA.zip 
+```
