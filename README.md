@@ -73,3 +73,15 @@ To unzip and organize:
 ```bash
 unzip WikiPassageQA.zip -d WikiPassageQA && rm WikiPassageQA.zip 
 ```
+
+## TODO
+Integrate in a better way to handle batch processing, using an idempotent data pipeline. Ideally, handles data download, file structure,
+organization, database standup, and launches of training/validation/testing jobs.
+ - Apache Airflow
+ - Spotify Luigi
+ 
+## Airflow Installation
+
+Notes on installing Airflow.
+
+
